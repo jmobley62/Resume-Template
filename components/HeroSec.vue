@@ -1,6 +1,5 @@
 <template>
-    <div class="w-full h-full font-pop text-white">
-        <img src="~static/plant2.jpg" class="absolute w-fit h-fit" style="z-index: -1;">
+    <div class="w-full h-screen font-pop text-white">
         <header class="container flex justify-between items-center pt-12 mx-auto">
 
             <a href="#" class="logo text-2xl font-black pr-96">Morgan.<span>Agee</span></a>
@@ -17,7 +16,7 @@
             </div>
         </header>
 
-        <section class="flex flex-col justify-center items-center w-screen h-screen">
+        <section class="flex flex-col justify-center items-center w-full h-screen">
         
             <h1 class="text-9xl text-center mb-10">Lorem ipsum dolor<br>sit amet consectetur.</h1>
         
@@ -32,5 +31,14 @@
 
     span {
         color: red;
+    }
+
+    body {
+        background-image: url('../static/plant2.jpg');
+        margin: 0;
+    }
+    button:hover {
+        background-color: #fff;
+        color: blue;
     }
 </style>
