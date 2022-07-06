@@ -4,15 +4,15 @@
 
             <a href="#" class="logo text-2xl font-black pr-96">Morgan.<span>Agee</span></a>
 
-            <nav class="space-x-12 pl-96">
+            <nav class="space-x-12 pl-96 border-r-4 border-dotted">
                 <a href="#">My Story</a>
                 <a href="#">Journal</a>
-                <a href="#">Contact</a>
+                <a href="#" class="pr-16">Contact</a>
             </nav>
 
-            <div class="bg-black">
-                <a href="">IG</a>
-                <a href="">TWITTER</a>
+            <div class='flex justify-between space-x-5'>
+                <a href='https://instagram.com/alexamorgannn?igshid=YmMyMTA2M2Y='><img src="../static/Insta.png" alt="Instagram" class='w-11 h-11' ></a>
+                <a href="https://www.linkedin.com/in/alexandra-morgan-agee-548579112"><img src="../static/linkedin.png" alt="Linkedin" class='w-11 h-11'></a>
             </div>
         </header>
 
@@ -20,7 +20,7 @@
         
             <h1 class="text-9xl text-center mb-10">Lorem ipsum dolor<br>sit amet consectetur.</h1>
         
-            <button class="p-4 bg-blue-700 text-4xl rounded-2xl">Hire Me</button>
+            <a href='https://www.linkedin.com/messaging/thread/new/?recipients=List(urn%3Ali%3Afsd_profile%3AACoAABw0UsgBIpoW1IhXSkeO4-wdDvdFryLvA5g)&composeOptionType=CONNECTION_MESSAGE&controlUrn=sticky_header_primary_compose_message_button&referringModuleKey=NON_SELF_PROFILE_VIEW&messageComposeFlowTrackingId=fIgJ246pR0mCCYvTtJi0hA%3D%3D'><button class="p-4 bg-blue-700 text-4xl rounded-2xl">Hire Me</button></a>
 
         </section>
     </div>
@@ -35,7 +35,7 @@
 
     body {
         background-image: url('../static/plant2.jpg');
-        margin: 0;
+        margin: 0 auto;
     }
     button:hover {
         background-color: #fff;
