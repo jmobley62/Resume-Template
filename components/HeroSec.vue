@@ -2,11 +2,11 @@
     <div class="w-full h-screen font-pop text-white">
         <header class="container flex justify-between items-center pt-12 mx-auto">
 
-            <a href="#" class="logo text-2xl font-black pr-96">Morgan.<span>Agee</span></a>
+            <a href="../static/resumeMA.png" class="logo text-2xl font-black pr-96">Morgan.<span>Agee</span></a>
 
             <nav class="space-x-12 pl-96 border-r-4 border-dotted">
-                <a href="#">My Story</a>
-                <a href="#">Journal</a>
+                <a target='_blank' href="https://www.linkedin.com/in/alexandra-morgan-agee-548579112/details/experience/">Work History</a>
+                <a href="#">Achievements</a>
                 <a href="#" class="pr-16">Contact</a>
             </nav>
 
@@ -16,7 +16,7 @@
             </div>
         </header>
 
-        <section class="flex flex-col justify-center items-center w-full h-screen">
+        <section class="flex flex-col items-center w-full h-screen pt-96 mt-10">
         
             <h1 class="text-9xl text-center mb-10">Lorem ipsum dolor<br>sit amet consectetur.</h1>
         
@@ -44,4 +44,7 @@
     a:hover {
         color: blue;
     }
+::-webkit-scrollbar {
+    display: none;
+}
 </style>
