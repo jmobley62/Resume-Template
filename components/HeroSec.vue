@@ -1,17 +1,22 @@
 <template>
-    <div class="w-full h-screen font-pop text-white">
+    <div class="w-full h-screen font-pop text-white overflow-hidden">
         <header class="container flex justify-between items-center pt-12 mx-auto">
 
-            <div id="myImg" class="logo text-2xl font-black pr-96" >Morgan.<span>Agee</span></div>
-            <img id="theImg" src="../static/snow.jpg" alt="" >
-
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-                <span class="close">&times;</span>
-                <img id="img01" class="modal-content" >
-            </div>
-
-            <nav class="space-x-12 pl-96 border-r-4 border-dotted">
+            <div class="logo text-2xl font-black pr-96" @click="showModal = true">Morgan.<span>Agee</span></div>
+            <!-- MY FIRST MODAL POP-UP -->
+            <transition name="fade" appear>
+                <div v-if="showModal" class="modal-overlay"  @click="showModal = false"></div>
+            </transition>
+            <transition name="slide" appear>
+                <div  v-if="showModal" class="modal">
+                    <img src="../static/Morgan's Resume.png">
+                    <button class="button" @click="showModal = false">
+                        Close Modal
+                    </button>
+                </div>
+            </transition>
+            
+            <nav class="space-x-12 pl-96 border-r-4 border-dotted" >
                 <a target='_blank' href="https://www.linkedin.com/in/alexandra-morgan-agee-548579112/details/experience/">Work History</a>
                 <a href="#">Achievements</a>
                 <a href="#" class="pr-16">Contact</a>
@@ -34,25 +39,13 @@
 </template>
 
 <script>
-// Get the modal
-const modal = document.getElementById("myModal");
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-const img = document.getElementById("myImg");
-const modalImg = document.getElementById("img01");
-const theImg = document.getElementById("theImg");
-img.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = theImg.src;
-}
-
-// Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() { 
-  modal.style.display = "none";
-}
+    export default {
+        data: function () {
+            return {
+                showModal: false
+            }
+        }
+    }
 </script>
 
 <style>
@@ -66,106 +59,72 @@ span.onclick = function() {
         background-image: url('../static/plant2.jpg');
         margin: 0 auto;
     }
+
     button:hover {
         background-color: #fff;
         color: blue;
     }
+
     a:hover {
         color: blue;
     }
+
 ::-webkit-scrollbar {
     display: none;
 }
 
+.logo {
+    cursor: pointer;
+}
+
+.logo:hover {
+    text-shadow:black 0px 0px 10px;
+}
+
 /*Modal*/
 
-#myImg {
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
+.modal-overlay {
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ z-index: 98;
+ background-color: rgba(0, 0, 0, 0.3);
 }
 
-#myImg:hover {opacity: 0.7;}
-
-/* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
-
-/* Modal Content (image) */
-.modal-content {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-}
-
-/* Caption of Modal Image */
-#caption {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-  text-align: center;
-  color: #ccc;
-  padding: 10px 0;
-  height: 150px;
-}
-
-/* Add Animation */
-.modal-content, #caption {  
-  -webkit-animation-name: zoom;
-  -webkit-animation-duration: 0.6s;
-  animation-name: zoom;
-  animation-duration: 0.6s;
-}
-
-@-webkit-keyframes zoom {
-  from {-webkit-transform:scale(0)} 
-  to {-webkit-transform:scale(1)}
-}
-
-@keyframes zoom {
-  from {transform:scale(0)} 
-  to {transform:scale(1)}
-}
-
-/* The Close Button */
-.close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-  .modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+ 
     width: 100%;
-  }
+    max-width: 900px;
+    background-color: #FFF;
+    border-radius: 16px;
+ 
+    padding: 25px;
 }
 
-#theImg {
-    display:none;
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+    transition: transform .5s;
+}
+
+.slide-enter,
+.slide-leave-to {
+    transform: translateY(-50%) translateX(100vw);
 }
 </style>
